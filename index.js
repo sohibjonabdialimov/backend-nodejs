@@ -1,10 +1,12 @@
-const getArgs = require("./helpers/args")
+import getArgs from "./helpers/args.js";
+import {printError, printSuccess, printHelp} from "./services/log.service.js";
 
 const cliFunction = () => {
   const args = getArgs(process.argv);
-
+  console.log(args);
   if(args.h){
     // help
+    printHelp();
   }
   if(args.s){
     // save city
@@ -12,8 +14,6 @@ const cliFunction = () => {
   if(args.t){
     // save token
   }
-  console.log(args);
-  console.log(process.argv);
 }
 
 cliFunction();
